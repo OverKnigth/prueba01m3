@@ -17,14 +17,13 @@ class Ejercicio2 extends StatelessWidget {
       drawer: MiDrawer(),
       body: Stack(
         children: [
-          // Imagen de fondo
           Positioned.fill(
             child: Image.network(
               "https://images.squarespace-cdn.com/content/v1/5fe4caeadae61a2f19719512/128c95a2-f303-434d-8c9f-1237c027b199/Pok%C3%A9mon+Emerald+-+waterfall",
               fit: BoxFit.cover,
             ),
           ),
-          // Contenido del cálculo
+  
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -36,7 +35,7 @@ class Ejercicio2 extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color:
-                        Colors.white, // Texto en blanco para mejor visibilidad
+                        Colors.white, 
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -52,10 +51,9 @@ class Ejercicio2 extends StatelessWidget {
   }
 }
 
-// Controlador para el campo de entrada
+// Controlador 
 TextEditingController velocidadAngularController = TextEditingController();
 
-// Widget de entrada para la velocidad angular
 Widget velocidadAngularInput() {
   return TextField(
     controller: velocidadAngularController,
@@ -63,13 +61,12 @@ Widget velocidadAngularInput() {
       labelText: "Velocidad Angular (w) en rad/s",
       border: OutlineInputBorder(),
       filled: true,
-      fillColor: Colors.white70, // Fondo semi-transparente para visibilidad
+      fillColor: Colors.white70, 
     ),
     keyboardType: TextInputType.number,
   );
 }
 
-// Botón para calcular
 Widget calcularButton(BuildContext context) {
   return Center(
     child: ElevatedButton(
@@ -79,9 +76,8 @@ Widget calcularButton(BuildContext context) {
   );
 }
 
-// Función para calcular la distancia y mostrar el resultado
 void calcularDistancia(BuildContext context) {
-  const double tiempo = 25.0; // Tiempo predeterminado en segundos
+  const double tiempo = 25.0; 
   final double? w = double.tryParse(velocidadAngularController.text);
 
   if (w == null) {
@@ -90,14 +86,12 @@ void calcularDistancia(BuildContext context) {
     return;
   }
 
-  // Cálculo de la distancia recorrida
   double distancia = w * tiempo;
 
   mostrarResultado(context, "Resultado",
       "La distancia recorrida es de ${distancia.toStringAsFixed(2)} radianes.");
 }
 
-// Función para mostrar un AlertDialog
 void mostrarResultado(BuildContext context, String titulo, String mensaje) {
   showDialog(
     context: context,
